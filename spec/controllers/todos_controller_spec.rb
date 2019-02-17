@@ -29,11 +29,11 @@ RSpec.describe TodosController, type: :controller do
   # Todo. As you add validations to Todo, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {title: "test title"}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {title_r: "test title"}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -87,7 +87,7 @@ RSpec.describe TodosController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {title: "test2 title"}
       }
 
       it "updates the requested todo" do
@@ -102,16 +102,6 @@ RSpec.describe TodosController, type: :controller do
 
         put :update, params: {id: todo.to_param, todo: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json')
-      end
-    end
-
-    context "with invalid params" do
-      it "renders a JSON response with errors for the todo" do
-        todo = Todo.create! valid_attributes
-
-        put :update, params: {id: todo.to_param, todo: invalid_attributes}, session: valid_session
-        expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
     end
