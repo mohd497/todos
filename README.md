@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
 * Ruby version
 
-* System dependencies
+ruby 2.5.3p105
 
-* Configuration
+* Rails version
 
-* Database creation
+Rails 5.2.2
 
-* Database initialization
+* Install dependencies
 
-* How to run the test suite
+bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
+* run tests
 
-* Deployment instructions
+bundle exec rspec
 
-* ...
+* deploy URL
+
+https://todo-list-api-ali-kazmi.herokuapp.com/
+
+* Routes
+
+ todo_items GET    /todos/:todo_id/items(.:format)                                                          items#index
+                          POST   /todos/:todo_id/items(.:format)                                                          items#create
+                todo_item GET    /todos/:todo_id/items/:id(.:format)                                                      items#show
+                          PATCH  /todos/:todo_id/items/:id(.:format)                                                      items#update
+                          PUT    /todos/:todo_id/items/:id(.:format)                                                      items#update
+                          DELETE /todos/:todo_id/items/:id(.:format)                                                      items#destroy
+                    todos GET    /todos(.:format)                                                                         todos#index
+                          POST   /todos(.:format)                                                                         todos#create
+                     todo GET    /todos/:id(.:format)                                                                     todos#show
+                          PATCH  /todos/:id(.:format)                                                                     todos#update
+                          PUT    /todos/:id(.:format)                                                                     todos#update
+                          DELETE /todos/:id(.:format)                                                                     todos#destroy
+
+
+
